@@ -14,26 +14,5 @@ def add(request):
     return render(request,"result.html",{'result': res})
 
 def index(request):
-    trip1 = trip()
-    trip1.name = 'Mumbai'
-    trip1.descrption = 'The city that never sleeps'
-    trip1.image = 'destination_1.jpg'
-    trip1.price = 120
-    trip1.offer = True
-
-    trip2 = trip()
-    trip2.name = 'Mumbai'
-    trip2.descrption = 'The city that never sleeps'
-    trip2.image = 'destination_2.jpg'
-    trip2.price = 120
-    trip2.offer = False
-
-    trip3 = trip()
-    trip3.name = 'Mumbai'
-    trip3.descrption = 'The city that never sleeps'
-    trip3.image = 'destination_3.jpg'
-    trip3.price = 120
-    trip3.offer = False
-
-    trips = [trip1,trip2,trip3]
+    trips=trip.objects.all()
     return render(request, "index.html" ,{'trips':trips})
